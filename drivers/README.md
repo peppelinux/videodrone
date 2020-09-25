@@ -1,0 +1,2 @@
+otherwise 
+seleniumbase install chromedriver

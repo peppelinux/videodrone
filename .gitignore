@@ -1,0 +1,6 @@
+env/*
+*/__pycache__/*
+build/*
+sdist/*
+dist/*
+*egg*
