@@ -1,6 +1,8 @@
 env/*
-*/__pycache__/*
+*__pycache__*
 build/*
 sdist/*
 dist/*
 *egg*
+y4ms/*
+

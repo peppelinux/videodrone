@@ -1,0 +1,66 @@
+#!/usr/bin/env python3
+import argparse
+import importlib
+import logging
+import multiprocessing as mp
+import time
+
+logger = logging.getLogger(__name__)
+
+_desc = ('videodrone -h for help')
+_epilog = "videodrone -n 3 -c videodrone.drones.jitsi_chrome -room peo"
+
+
+parser = argparse.ArgumentParser(description = _desc, epilog = _epilog)
+parser.add_argument('-n', required=False, default=1, type=int,
+                    help="Number of video drones")
+parser.add_argument('-t', required=False, default=1, type=int,
+                    help="Timeout between drones execution")
+parser.add_argument('-c', required=False,
+                    help=("drone profile to execute.\n"
+                          "Example: "
+                          "videodrone.drones.jitsi_chrome"),
+                    default='videodrone.drones.jitsi_chrome')
+parser.add_argument('-driver', required=False,
+                    help=("selenium driver path"),
+                    default='drivers/chromium.chromedriver')
+parser.add_argument('-y4m', required=False,
+                    help=("y4m path, where media files resides."))
+parser.add_argument('-room', required=True,
+                    help=("room name"))
+parser.add_argument('-lifetime', required=False, default=360, type=int,
+                    help=("Duration of drone activity "
+                          "before auto destruction")),
+parser.add_argument('-debug', required=False, 
+                    choices=('CRITICAL', 'ERROR', 
+                             'WARNING', 'INFO', 'DEBUG'), 
+                    default='INFO',
+                    help="Debug level, see python logging")
+args = parser.parse_args()
+
+# some fancy parameters
+wn = args.n
+timeout = args.t
+room = args.room
+y4m = args.y4m
+lifetime = args.lifetime
+drone_path = args.c
+drone_conn = importlib.import_module(drone_path)
+
+# logging level
+logging.basicConfig(level=getattr(logging, args.debug))
+
+if wn <= 1:
+    # single mode: Default
+    drone_conn.run(room, y4m, lifetime)
+else:
+    # Parallel
+    # mp.set_start_method('spawn')
+    for i in range(wn):
+        p = mp.Process(target=drone_conn.run, 
+                       args=(room, y4m, lifetime))
+        time.sleep(timeout)
+        p.start()
+        logger.info(f'Started drone {p}')
+    p.join()
+    
