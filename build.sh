@@ -9,7 +9,7 @@ rm -Rf $VDPATH
 if [ -z "$CHROME_VER" ]
 then
       echo "Please install chromium"
-      sys.exit 1
+      exit 1
 else
       echo $(chromium --version)
 fi
@@ -18,6 +18,7 @@ fi
 virtualenv -h 2>&1 > /dev/null
 if [ $? -eq 1 ]; then 
     echo "Please install python3 virtualenv"
+    exit 1
 fi
 
 case $CHROME_VER in

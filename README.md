@@ -12,13 +12,27 @@ Setup
 -----
 
 You need a fully working python3 pip environment, with `virtualenv` installed in.
-
 You can even use `build.sh` to build your videodrone project.
 ![example](gallery/videodrone_autobuild.2-min.gif)
+
+
+Prepare environment
+````
+apt install python3-pip wget chromium
+pip3 install --upgrade pip
+pip3 install virtualenv
+
+wget https://raw.githubusercontent.com/peppelinux/videodrone/master/build.sh -O build.sh
+bash build.sh VideoDrone
+````
 
 You can even install videodrone by hands.
 
 ````
+apt install python3-pip wget chromium unzip
+pip3 install --upgrade pip
+pip3 install virtualenv
+
 mkdir VideoDrones && cd VideoDrones
 virtualenv -ppython3 env && source env/bin/activate
 pip install videodrone
@@ -30,6 +44,19 @@ Create the following directories before executing `videodrone`.
   - `mkdir y4ms`
   - `wget https://media.xiph.org/video/derf/y4m/students_cif.y4m -O y4ms/students_cif.y4m`
 - driver, where your selenium drivers resides.
+
+Setup in LXC container
+----------------------
+
+````
+apt install lxc
+CONTAINER_NAME=deb10
+lxc-create -t download -n $CONTAINER_NAME -- -d debian -r buster -a armhf
+lxc-start deb10
+lxc-attach deb10
+
+# then choose your preferred setup
+````
 
 Run
 ---
