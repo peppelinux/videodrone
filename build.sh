@@ -14,10 +14,30 @@ else
       echo $(chromium --version)
 fi
 
+if [ -z "$VDPATH" ]
+then
+      echo "Installing to ./VideoDrone ..."
+      VDPATH="VideoDrone"
+fi
+
 # virtualenv check
 virtualenv -h 2>&1 > /dev/null
 if [ $? -eq 1 ]; then 
     echo "Please install python3 virtualenv"
+    exit 1
+fi
+
+# unzip check
+unzip -h 2>&1 > /dev/null
+if [ $? -eq 1 ]; then 
+    echo "Please install unzip"
+    exit 1
+fi
+
+# wget check
+wget -h 2>&1 > /dev/null
+if [ $? -eq 1 ]; then 
+    echo "Please install wget"
     exit 1
 fi
 
