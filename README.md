@@ -3,9 +3,10 @@ VideoDrone
 
 Test popular WebRTC Platforms with Selenium HQ and Python.
 Videodrone aims to be a lightweight build system for unit test orchestration.
-It simply manage "drone connector" with python multiprocessing, 
-at this moment only chrome driver was tested, 
-fill free to contribute with your "drone connector", see [section](#drone-connectors).
+It simply manage "drone connector" with python multiprocessing.
+
+At this moment only chrome driver was implemented and well tested on Debian based distributions, 
+fill free to contribute with your "drone connector", see [section](#drone-connectors) for further informations.
 
 
 Setup
@@ -60,13 +61,12 @@ Docker Image
 
 ````
 docker image build --tag videodrone .
-docker container run --name videodrone videodrone
 
 # go in
 # docker container run -it videodrone /bin/bash
 
-# run
-docker container run -dit -e VIDEODRONE_DRIVER=/usr/bin/chromedriver videodrone videodrone -room thatroom -c videodrone.drones.jitsi_chrome -y4m /VideoDrone/y4ms/ -n 1
+# run the container with your preferred configuration
+docker container run -dit -e VIDEODRONE_DRIVER=/usr/bin/chromedriver videodrone videodrone -room thatroom -c videodrone.drones.jitsi_chrome -y4m /VideoDrone/y4ms/ -lifetime 33 -n 4
 ````
 
 Run
@@ -74,12 +74,12 @@ Run
 
 `VIDEODRONE_DRIVER` environment variable can override the driver path settings.
 
-example, this connector is configured to create a drone party to https://meet.jit.si/thatroom
+example, this connector is configured to create a drone party to "https://meet.jit.si/thatroom":
 ````
 VIDEODRONE_DRIVER=../VideoDrone.orig/drivers/videodrone -c "videodrone.drones.jitsi_chrome" -r peo -y4m ./y4ms/
 ````
 
-There will be a party of 4 drones in "thatroom"
+There will be a party of 4 drones in "thatroom":
 ````
 videodrone -room thatroom -c "videodrone.drones.jitsi_chrome" -y4m ./y4ms/ -n 4
 ````
@@ -111,4 +111,4 @@ Drone connectors must be packaged and installed, them must be available through 
 Credits
 -------
 
-Fabio Farina (Garr Consortium), Massimo Carboni (Garr Consortium), Garrlab community
+Fabio Farina (Garr Consortium), Massimo Carboni (Garr Consortium), Garrlab community.
