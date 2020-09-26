@@ -45,7 +45,6 @@ lifetime = args.lifetime
 drone_path = args.c
 drone_conn = importlib.import_module(drone_path)
 drone_driver = args.driver
-                                                 )
 
 # logging level
 logging.basicConfig(level=getattr(logging, args.debug))
