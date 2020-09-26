@@ -1,7 +1,7 @@
 VideoDrone
 ----------
 
-Test popular WebRTC Platform with Selenium HQ and Python.
+Test popular WebRTC Platforms with Selenium HQ and Python.
 
 Your first Project
 ---------------
@@ -18,9 +18,9 @@ Installation
 pip install videodrone
 ````
 
-Create the following directory before executing `videodrone`.
+Create the following directories before executing `videodrone`.
 
-- y4m, where your preferred y4m files resides.
+- y4m, where your preferred y4m files resides. They will be used randomically.
   - `mkdir y4ms`
   - `wget https://media.xiph.org/video/derf/y4m/students_cif.y4m -O y4ms/students_cif.y4m`
 - driver, where your selenium drivers resides.
@@ -52,17 +52,21 @@ INFO:__name__:Drone destroyed
 INFO:__name__:Drone destroyed
 ````
 
+What happens
 ![example](gallery/1.png)
+
 
 Drone Connectors
 ----------------
 
-Drone connectors are simple selenium browser macro written in pythom.
+Drone connectors are selenium browser macros, written in python, as simple as possibile.
 See [videodrone.drones.jitsi_drone](src/videodrone/drones/jitsi_chrome.py) for example.
-Drone connectors must be packaged and installed, or available in your PYTHONPATH (sys.path).
+Drone connectors must be packaged and installed, them must be available through your PYTHONPATH (sys.path).
 
 
 Credits
 -------
 
-Fabio Farina
+Fabio Farina (Garr Consortium)
+Massimo Carboni (Garr Consortium)
+Garrlab community
