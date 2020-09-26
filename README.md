@@ -2,19 +2,25 @@ VideoDrone
 ----------
 
 Test popular WebRTC Platforms with Selenium HQ and Python.
+Videodrone want to be a lightweight build system for unittest orchestration.
+It simply manage "drone connector" with python multiprocessing, 
+at this moment only chrome driver was tested, 
+fill free to contribute with your "drone connector", see [section](#drone-connectors).
 
-Your first Project
----------------
 
-Install videodrone on a virtualenv
+Setup
+-----
+
+You need a fully working python3 pip environment, with `virtualenv` installed in.
+
+You can even use `build.sh` to build your videodrone project.
+![example](gallery/videodrone_autobuild.gif)
+
+You can even install videodrone by hands.
 
 ````
 mkdir VideoDrones && cd VideoDrones
 virtualenv -ppython3 env && source env/bin/activate
-````
-
-Installation
-````
 pip install videodrone
 ````
 
