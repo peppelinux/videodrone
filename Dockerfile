@@ -41,13 +41,3 @@ RUN pip3 install --upgrade pip
 
 RUN wget https://raw.githubusercontent.com/peppelinux/videodrone/master/build.sh -O build.sh
 RUN bash build.sh $VDPATH
-
-WORKDIR /$VDPATH
-
-## Add the wait script to the image
-# ADD https://github.com/ufoscout/docker-compose-wait/releases/download/2.7.2/wait /wait
-# RUN chmod +x /wait
-
-# check with
-# docker inspect --format='{{json .State.Health}}' uniticket
-# HEALTHCHECK --interval=3s --timeout=2s --retries=1 CMD curl --fail http://localhost:8000/ || exit 1
