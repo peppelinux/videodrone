@@ -52,6 +52,8 @@ INFO:__name__:Drone destroyed
 INFO:__name__:Drone destroyed
 ````
 
+![example](gallery/1.png)
+
 Drone Connectors
 ----------------
 
