@@ -26,7 +26,7 @@ ENV VD_DRONE_NUMBER=2
 
 # install dependencies
 RUN apt update
-RUN apt install -y wget chromium unzip 
+RUN apt install -y wget unzip chromium chromium-driver
 
 # install xvfb
 RUN apt-get install -yqq xvfb
@@ -38,9 +38,6 @@ RUN apt clean
 
 # install dependencies
 RUN pip3 install --upgrade pip
-RUN pip3 install virtualenv
-RUN virtualenv -ppython3 env
-RUN . env/bin/activate
 
 RUN wget https://raw.githubusercontent.com/peppelinux/videodrone/master/build.sh -O build.sh
 RUN bash build.sh $VDPATH

@@ -20,7 +20,7 @@ def get_chrome_browser(y4m=None):
     options = webdriver.ChromeOptions()
     # options.add_argument('')
     options.add_argument('--headless')
-    # options.add_argument('no-sandbox')
+    options.add_argument('no-sandbox') # otherwise chromedriver in docker env fails ...
     options.add_argument('disable-infobars')
     options.add_argument('--disable-extensions')
     options.add_argument('--disable-dev-shm-usage')

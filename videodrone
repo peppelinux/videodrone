@@ -46,6 +46,8 @@ y4m = args.y4m
 lifetime = args.lifetime
 drone_path = args.c
 drone_conn = importlib.import_module(drone_path)
+os.environ['VIDEODRONE_DRIVER'] = os.environ.get('VIDEODRONE_DRIVER', 
+                                                 args.d)
 
 # logging level
 logging.basicConfig(level=getattr(logging, args.debug))

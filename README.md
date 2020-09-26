@@ -55,6 +55,17 @@ lxc-attach deb10
 # then choose your preferred setup as show in the previous sections.
 ````
 
+Docker Image
+------------
+
+````
+docker image build --tag videodrone:v0.7.4 .
+docker container run --name videodrone videodrone:v0.7.4
+
+# go in
+docker container run -it videodrone:v0.7.4 /bin/bash
+````
+
 Run
 ---
 
