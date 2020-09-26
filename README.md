@@ -52,11 +52,12 @@ INFO:__name__:Drone destroyed
 INFO:__name__:Drone destroyed
 ````
 
-Write your own Drone Connector
-------------------------------
+Drone Connectors
+----------------
 
-See [videodrone.drones.jitsi_drone](src/videodrone/drones/jitsi_drone.py).
-Drone connectors must be packaged and installed, or available in sys.path.
+Drone connectors are simple selenium browser macro written in pythom.
+See [videodrone.drones.jitsi_drone](src/videodrone/drones/jitsi_drone.py) for example.
+Drone connectors must be packaged and installed, or available in your PYTHONPATH (sys.path).
 
 
 Credits
