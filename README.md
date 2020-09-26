@@ -14,7 +14,7 @@ Setup
 You need a fully working python3 pip environment, with `virtualenv` installed in.
 
 You can even use `build.sh` to build your videodrone project.
-![example](gallery/videodrone_autobuild.gif)
+![example](gallery/videodrone_autobuild.2-min.gif)
 
 You can even install videodrone by hands.
 
