@@ -30,7 +30,7 @@ Run
 
 `VIDEODRONE_DRIVER` environment variable can override the driver path settings.
 
-example
+example, this connector is configured to create a drone party to https://meet.jit.si/thatroom
 ````
 VIDEODRONE_DRIVER=../VideoDrone.orig/drivers/videodrone -c "videodrone.drones.jitsi_chrome" -r peo -y4m ./y4ms/
 ````
@@ -56,7 +56,7 @@ Drone Connectors
 ----------------
 
 Drone connectors are simple selenium browser macro written in pythom.
-See [videodrone.drones.jitsi_drone](src/videodrone/drones/jitsi_drone.py) for example.
+See [videodrone.drones.jitsi_drone](src/videodrone/drones/jitsi_chrome.py) for example.
 Drone connectors must be packaged and installed, or available in your PYTHONPATH (sys.path).
 
 
