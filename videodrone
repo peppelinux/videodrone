@@ -22,9 +22,6 @@ parser.add_argument('-c', required=False,
                           "Example: "
                           "videodrone.drones.jitsi_chrome"),
                     default='videodrone.drones.jitsi_chrome')
-parser.add_argument('-driver', required=False,
-                    help=("selenium driver path"),
-                    default='drivers/chromedriver')
 parser.add_argument('-y4m', required=False,
                     help=("y4m path, where media files resides."))
 parser.add_argument('-room', required=True,
@@ -47,8 +44,8 @@ y4m = args.y4m
 lifetime = args.lifetime
 drone_path = args.c
 drone_conn = importlib.import_module(drone_path)
-os.environ['VIDEODRONE_DRIVER'] = os.environ.get('VIDEODRONE_DRIVER', 
-                                                 args.driver)
+drone_driver = args.driver
+                                                 )
 
 # logging level
 logging.basicConfig(level=getattr(logging, args.debug))

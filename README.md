@@ -59,11 +59,14 @@ Docker Image
 ------------
 
 ````
-docker image build --tag videodrone:v0.7.4 .
-docker container run --name videodrone videodrone:v0.7.4
+docker image build --tag videodrone .
+docker container run --name videodrone videodrone
 
 # go in
-docker container run -it videodrone:v0.7.4 /bin/bash
+# docker container run -it videodrone /bin/bash
+
+# run
+docker container run -dit -e VIDEODRONE_DRIVER=/usr/bin/chromedriver videodrone videodrone -room thatroom -c videodrone.drones.jitsi_chrome -y4m /VideoDrone/y4ms/ -n 1
 ````
 
 Run
