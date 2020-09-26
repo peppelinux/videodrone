@@ -44,4 +44,4 @@ wget $Y4M_URL -O y4ms/example_cif.y4m
 virtualenv -ppython3 env && source env/bin/activate
 pip install videodrone
 
-videodrone -driver drivers/chromedriver -c "videodrone.drones.jitsi_chrome" -r thatroom -y4m ./y4ms/ -n 2
+videodrone -c "videodrone.drones.jitsi_chrome" -r thatroom -y4m ./y4ms/ -lifetime 24 -n 2
