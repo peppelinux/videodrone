@@ -20,7 +20,7 @@ Available drones:
 - [jitsi](https://meet.jit.si/), [jitsi_chrome](src/videodrone/drones/jitsi_chrome.py)
 - [Edu meet GARR](https://edu.meet.garr.it/), [edumeet_garr_chrome](src/videodrone/drones/edumeet_garr_chrome.py)
 - [Open meet GARR](https://open.meet.garr.it/), [open_garr_chrome](src/videodrone/drones/open_garr_chrome.py)
-- [lepida #iorestoacasa work](https://lepida1.iorestoacasa.work), [open_garr_chrome](src/videodrone/drones/lepida_iorestoacasawork_chrome.py)
+- [lepida #iorestoacasa work](https://lepida1.iorestoacasa.work), [lepida_iorestoacasawork_chrome](src/videodrone/drones/lepida_iorestoacasawork_chrome.py)
 
 You should know, that:
 - WebRTC needs a huge load, on a intel i7 you would start from 5 to 8 drones
