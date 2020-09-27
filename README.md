@@ -2,11 +2,10 @@ VideoDrone
 ----------
 
 How many connected users your favourite open source video conferencing solution can handle?
-That's the question that __videodrone__ wants to answer.
+That's the question that __videodrone__ wants to answer. Empirically.
 
 Videodrone tests popular WebRTC Platforms with Selenium HQ and Python, aiming 
 to be a lightweight build system for load test orchestration.
-
 
 At this moment only chrome driver was implemented and well tested on Debian based distributions, 
 fill free to contribute with your "drone connector". See [Drone Connectors](#drone-connectors) for further informations.
@@ -24,7 +23,7 @@ Available drones:
 
 You should know, that:
 - WebRTC needs a huge load, on a intel i7 you would start from 5 to 8 drones
-- hundreds of drones should be handled in a distribuited environment
+- hundreds of drones should be started in a fully distribuited environment
 
 Setup
 -----
