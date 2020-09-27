@@ -105,7 +105,7 @@ Drone Connectors
 
 Drone connectors are selenium browser macros, written in python, as simple as possibile.
 See [videodrone.drones.jitsi_drone](src/videodrone/drones/jitsi_chrome.py) for example.
-Drone connectors must be packaged and installed, them must be available through your PYTHONPATH (sys.path).
+Drone connectors must be packaged and installed or included in your PYTHONPATH (sys.path).
 
 
 Credits
