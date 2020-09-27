@@ -85,7 +85,7 @@ VIDEODRONE_DRIVER=../VideoDrone.orig/drivers/videodrone -c "videodrone.drones.ji
 
 There will be a party of 4 drones in "thatroom":
 ````
-videodrone -room thatroom -c "videodrone.drones.jitsi_chrome" -y4m ./y4ms/ -n 4
+videodrone -room thatroom -c "videodrone.drones.edumeet_garr_chrome" -y4m ./y4ms/ -n 4
 ````
 
 Output
