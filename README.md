@@ -3,10 +3,14 @@ VideoDrone
 
 Test popular WebRTC Platforms with Selenium HQ and Python.
 Videodrone aims to be a lightweight build system for unit test orchestration.
-It simply manage "drone connector" with python multiprocessing.
+It simply manage selenium hq with python multiprocessing.
 
 At this moment only chrome driver was implemented and well tested on Debian based distributions, 
 fill free to contribute with your "drone connector", see [section](#drone-connectors) for further informations.
+
+Available drones:
+- jitsi
+- Edu meet GARR
 
 
 Setup
