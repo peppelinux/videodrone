@@ -6,7 +6,7 @@ Videodrone aims to be a lightweight build system for unit test orchestration.
 It simply manage selenium hq with python multiprocessing.
 
 At this moment only chrome driver was implemented and well tested on Debian based distributions, 
-fill free to contribute with your "drone connector", see [section](#drone-connectors) for further informations.
+fill free to contribute with your "drone connector".See [Drone Connectors](#drone-connectors) for further informations.
 
 Available drones:
 - jitsi
