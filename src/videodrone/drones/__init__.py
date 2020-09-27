@@ -15,6 +15,7 @@ DRIVER_PATH = os.environ.get('VIDEODRONE_DRIVER',
                              os.path.join("drivers", 
                                           "chromedriver"))
 
+
 def get_chrome_browser(y4m=None):
     y4m_file = get_random_y4m(path=y4m)
     options = webdriver.ChromeOptions()

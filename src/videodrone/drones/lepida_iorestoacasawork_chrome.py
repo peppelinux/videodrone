@@ -3,7 +3,7 @@ from selenium.webdriver.common.by import By
 
 from . import *
 
-URL = "https://edu.meet.garr.it"
+URL = "https://lepida1.iorestoacasa.work"
 
 logger = logging.getLogger(__name__)
 warnings.filterwarnings("ignore", category=UserWarning)

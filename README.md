@@ -1,22 +1,32 @@
 VideoDrone
 ----------
 
-Test popular WebRTC Platforms with Selenium HQ and Python.
-Videodrone aims to be a lightweight build system for unit test orchestration.
-It simply manage selenium hq with python multiprocessing.
+How many connected users your favourite open source video conferencing solution can handle?
+That's the question that __videodrone__ wants to answer.
+
+Videodrone tests popular WebRTC Platforms with Selenium HQ and Python, aiming 
+to be a lightweight build system for load test orchestration.
+
 
 At this moment only chrome driver was implemented and well tested on Debian based distributions, 
 fill free to contribute with your "drone connector". See [Drone Connectors](#drone-connectors) for further informations.
 
+Requirements:
+- python {26,27,38}
+- selenium
+- chromium web browser
+
 Available drones:
-- jitsi
-- Edu meet GARR
+- [jitsi](https://meet.jit.si/), [jitsi_chrome](src/videodrone/drones/jitsi_chrome.py)
+- [Edu meet GARR](https://edu.meet.garr.it/), [edumeet_garr_chrome](src/videodrone/drones/edumeet_garr_chrome.py)
+- [Open meet GARR](https://open.meet.garr.it/), [open_garr_chrome](src/videodrone/drones/open_garr_chrome.py)
+- [lepida #iorestoacasa work](https://open.meet.garr.it/), [open_garr_chrome](src/videodrone/drones/lepida_iorestoacasawork_chrome.py)
 
 
 Setup
 -----
 
-You need a fully working python3 pip environment, with `virtualenv` installed in.
+Provide a fully working python3 pip environment, with `virtualenv` installed in.
 You can even use `build.sh` to build your videodrone project.
 ![example](gallery/videodrone_autobuild.3-min.gif)
 
@@ -108,8 +118,11 @@ Drone Connectors
 ----------------
 
 Drone connectors are selenium browser macros, written in python, as simple as possibile.
-See [videodrone.drones.jitsi_drone](src/videodrone/drones/jitsi_chrome.py) for example.
-Drone connectors must be packaged and installed or included in your PYTHONPATH (sys.path).
+Drone connectors must be packaged and installed or included 
+in your PYTHONPATH (sys.path), this means that you can even create 
+a python local project folder in your VideoDrone Project.
+
+See [videodrone.drones.jitsi_chrome](src/videodrone/drones/jitsi_chrome.py) for example.
 
 
 Credits
