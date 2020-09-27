@@ -78,9 +78,9 @@ Run
 
 `VIDEODRONE_DRIVER` environment variable can override the driver path settings.
 
-example, this connector is configured to create a drone party to "https://meet.jit.si/thatroom":
+example, this connector is configured to create a single drone to "https://meet.jit.si/thatroom":
 ````
-VIDEODRONE_DRIVER=../VideoDrone.orig/drivers/videodrone -c "videodrone.drones.jitsi_chrome" -r peo -y4m ./y4ms/
+VIDEODRONE_DRIVER=../VideoDrone.orig/drivers/videodrone -c "videodrone.drones.jitsi_chrome" -r thatroom -y4m ./y4ms/
 ````
 
 There will be a party of 4 drones in "thatroom":
