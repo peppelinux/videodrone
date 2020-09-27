@@ -89,11 +89,11 @@ docker container run -dit -e VIDEODRONE_DRIVER=/usr/bin/chromedriver videodrone 
 Run
 ---
 
-`VIDEODRONE_DRIVER` environment variable can override the driver path settings.
+`VIDEODRONE_DRIVER` environment variable can override the default path, which is `$VDPATH/drivers/chromedriver`.
 
 example, this connector is configured to create a single drone to "https://meet.jit.si/thatroom":
 ````
-VIDEODRONE_DRIVER=../VideoDrone.orig/drivers/videodrone -c "videodrone.drones.jitsi_chrome" -r thatroom -y4m ./y4ms/
+VIDEODRONE_DRIVER=/usr/bin/chromedriver -c "videodrone.drones.jitsi_chrome" -r thatroom -y4m ./y4ms/
 ````
 
 There will be a party of 4 drones in "thatroom":
@@ -122,8 +122,8 @@ Drone Connectors
 
 Drone connectors are selenium browser macros, written in python, as simple as possibile.
 Drone connectors must be packaged and installed or included 
-in your PYTHONPATH (sys.path), this means that you can even create 
-a python local project folder in your VideoDrone Project.
+in your PYTHONPATH (sys.path). You can even create 
+a python local package folder, in your VideoDrone Project.
 
 See [videodrone.drones.jitsi_chrome](src/videodrone/drones/jitsi_chrome.py) for example.
 
