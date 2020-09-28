@@ -23,8 +23,8 @@ Available drones:
 - [lepida #iorestoacasa work](https://lepida1.iorestoacasa.work), [open_garr_chrome](src/videodrone/drones/lepida_iorestoacasawork_chrome.py)
 
 You should know, that:
-- WebRTC needs a huge load, on a intel i7 you would start from 5 to 8 drones
-- hundreds of drones should be handled in a distribuited environment
+- WebRTC needs a huge load, on a intel i7 processor you would start from 5 to 8 drones
+- hundreds of drones should be handled in a distribuited environment, a cluster of videodrones
 
 Setup
 -----
