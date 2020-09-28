@@ -11,7 +11,7 @@ At this moment only chrome driver was implemented and well tested on Debian base
 fill free to contribute with your "drone connector". See [Drone Connectors](#drone-connectors) for further informations.
 
 Requirements:
-- python {26,27,38}
+- python {36,37,38}
 - selenium
 - chromium web browser
 
