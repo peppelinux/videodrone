@@ -2,17 +2,16 @@ VideoDrone
 ----------
 
 How many connected users your favourite open source video conferencing solution can handle?
-That's the question that __videodrone__ wants to answer.
+That's the question that __videodrone__ wants to answer. Empirically.
 
 Videodrone tests popular WebRTC Platforms with Selenium HQ and Python, aiming 
 to be a lightweight build system for load test orchestration.
-
 
 At this moment only chrome driver was implemented and well tested on Debian based distributions, 
 fill free to contribute with your "drone connector". See [Drone Connectors](#drone-connectors) for further informations.
 
 Requirements:
-- python {26,27,38}
+- python {36,37,38}
 - selenium
 - chromium web browser
 
@@ -20,7 +19,7 @@ Available drones:
 - [jitsi](https://meet.jit.si/), [jitsi_chrome](src/videodrone/drones/jitsi_chrome.py)
 - [Edu meet GARR](https://edu.meet.garr.it/), [edumeet_garr_chrome](src/videodrone/drones/edumeet_garr_chrome.py)
 - [Open meet GARR](https://open.meet.garr.it/), [open_garr_chrome](src/videodrone/drones/open_garr_chrome.py)
-- [lepida #iorestoacasa work](https://lepida1.iorestoacasa.work), [open_garr_chrome](src/videodrone/drones/lepida_iorestoacasawork_chrome.py)
+- [lepida #iorestoacasa work](https://lepida1.iorestoacasa.work), [lepida_iorestoacasawork_chrome](src/videodrone/drones/lepida_iorestoacasawork_chrome.py)
 
 You should know, that:
 - WebRTC needs a huge load, on a intel i7 processor you would start from 5 to 8 drones
@@ -57,7 +56,7 @@ Create the following directories before executing `videodrone`.
 - y4m, where your preferred y4m files resides. They will be used randomically.
   - `mkdir y4ms`
   - `wget https://media.xiph.org/video/derf/y4m/students_cif.y4m -O y4ms/students_cif.y4m`
-- driver, where your selenium drivers resides.
+- drivers, where your selenium drivers resides.
 
 
 Setup in LXC container
@@ -89,11 +88,11 @@ docker container run -dit -e VIDEODRONE_DRIVER=/usr/bin/chromedriver videodrone 
 Run
 ---
 
-`VIDEODRONE_DRIVER` environment variable can override the driver path settings.
+`VIDEODRONE_DRIVER` environment variable can override the default path, which is `$VDPATH/drivers/chromedriver`.
 
 example, this connector is configured to create a single drone to "https://meet.jit.si/thatroom":
 ````
-VIDEODRONE_DRIVER=../VideoDrone.orig/drivers/videodrone -c "videodrone.drones.jitsi_chrome" -r thatroom -y4m ./y4ms/
+VIDEODRONE_DRIVER=/usr/bin/chromedriver -c "videodrone.drones.jitsi_chrome" -r thatroom -y4m ./y4ms/
 ````
 
 There will be a party of 4 drones in "thatroom":
@@ -122,8 +121,8 @@ Drone Connectors
 
 Drone connectors are selenium browser macros, written in python, as simple as possibile.
 Drone connectors must be packaged and installed or included 
-in your PYTHONPATH (sys.path), this means that you can even create 
-a python local project folder in your VideoDrone Project.
+in your PYTHONPATH (sys.path). You can even create 
+a python local package folder, in your VideoDrone Project.
 
 See [videodrone.drones.jitsi_chrome](src/videodrone/drones/jitsi_chrome.py) for example.
 
