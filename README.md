@@ -56,7 +56,7 @@ Create the following directories before executing `videodrone`.
 - y4m, where your preferred y4m files resides. They will be used randomically.
   - `mkdir y4ms`
   - `wget https://media.xiph.org/video/derf/y4m/students_cif.y4m -O y4ms/students_cif.y4m`
-- driver, where your selenium drivers resides.
+- drivers, where your selenium drivers resides.
 
 
 Setup in LXC container
