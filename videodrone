@@ -26,6 +26,11 @@ parser.add_argument('-y4m', required=False,
                     help=("y4m path, where media files resides."))
 parser.add_argument('-room', required=True,
                     help=("room name"))
+parser.add_argument('-pin', required=False,
+                    help=("secret pin to access that room"))
+parser.add_argument('-headless', required=False, default=1, type=int,
+                    help=("if false the chrome browser will "
+                          "start in foreground"))
 parser.add_argument('-lifetime', required=False, default=360, type=int,
                     help=("Duration of drone activity "
                           "before auto destruction")),
@@ -40,23 +45,29 @@ args = parser.parse_args()
 wn = args.n
 timeout = args.t
 room = args.room
+pin=args.pin
 y4m = args.y4m
 lifetime = args.lifetime
+headless=args.headless
 drone_path = args.c
 drone_conn = importlib.import_module(drone_path)
 
 # logging level
-logging.basicConfig(level=getattr(logging, args.debug))
+# logging.basicConfig(level=getattr(logging, args.debug))
 
 if wn <= 1:
     # single mode: Default
-    drone_conn.run(room, y4m, lifetime)
+    drone_conn.run(room=room, y4m=y4m, lifetime=lifetime, pin=pin,
+                   headless=headless)
 else:
     # Parallel
-    # mp.set_start_method('spawn')
     for i in range(wn):
         p = mp.Process(target=drone_conn.run, 
-                       args=(room, y4m, lifetime))
+                       kwargs={'room':room, 
+                               'pin': pin, 
+                               'y4m': y4m, 
+                               'lifetime': lifetime,
+                               'headless':headless})
         time.sleep(timeout)
         p.start()
         logger.info(f'Started drone {p}')

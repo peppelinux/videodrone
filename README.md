@@ -16,6 +16,7 @@ Requirements:
 - chromium web browser
 
 Available drones:
+- [BBB meet GARR](https://blue.meet.garr.it/), [bbbmeet_garr_chrome](src/videodrone/drones/bbbmeet_garr_chrome.py)
 - [jitsi](https://meet.jit.si/), [jitsi_chrome](src/videodrone/drones/jitsi_chrome.py)
 - [Edu meet GARR](https://edu.meet.garr.it/), [edumeet_garr_chrome](src/videodrone/drones/edumeet_garr_chrome.py)
 - [Open meet GARR](https://open.meet.garr.it/), [open_garr_chrome](src/videodrone/drones/open_garr_chrome.py)
@@ -92,7 +93,7 @@ Run
 
 example, this connector is configured to create a single drone to "https://meet.jit.si/thatroom":
 ````
-VIDEODRONE_DRIVER=/usr/bin/chromedriver -c "videodrone.drones.jitsi_chrome" -r thatroom -y4m ./y4ms/
+VIDEODRONE_DRIVER=/usr/bin/chromedriver videodrone -c "videodrone.drones.jitsi_chrome" -r thatroom -y4m ./y4ms/
 ````
 
 There will be a party of 4 drones in "thatroom":
@@ -114,6 +115,12 @@ INFO:__name__:Drone destroyed
 
 What happens
 ![example](gallery/1.png)
+
+Another example with Garr BBB meet. `headless` set to false means that the browser will run in foreground.
+
+````
+./videodrone -c "videodrone.drones.bbbmeet_garr_chrome" -room "/b/roomname -pin thatpin -y4m y4ms/ -headless 0 -lifetime 27
+````
 
 
 Drone Connectors

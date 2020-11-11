@@ -16,11 +16,12 @@ DRIVER_PATH = os.environ.get('VIDEODRONE_DRIVER',
                                           "chromedriver"))
 
 
-def get_chrome_browser(y4m=None):
+def get_chrome_browser(y4m=None, headless=True):
     y4m_file = get_random_y4m(path=y4m)
     options = webdriver.ChromeOptions()
     # options.add_argument('')
-    options.add_argument('--headless')
+    if headless:
+        options.add_argument('--headless')
     options.add_argument('no-sandbox') # otherwise chromedriver in docker env fails ...
     options.add_argument('disable-infobars')
     options.add_argument('--disable-extensions')
