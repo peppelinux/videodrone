@@ -23,6 +23,12 @@ def run(room='videodrone', y4m='./y4m', lifetime=360, headless=1, pin=None):
     time.sleep(5)
     browser.find_element_by_xpath('/html/body/div[2]/div/div/div[1]/div/span/button[1]').click()
     
+    # show cam
+    time.sleep(5)
+    browser.find_element_by_xpath('//*[@id="tippy-25"]/span[1]').click()
+    time.sleep(5)
+    browser.find_element_by_xpath("/html/body/div[2]/div/div/div[1]/div/div[3]/div/button[2]/span").click()
+    
     time.sleep(lifetime)
     # leave the room
     browser.find_element_by_xpath('//*[@id="tippy-3"]/span[1]').click()
