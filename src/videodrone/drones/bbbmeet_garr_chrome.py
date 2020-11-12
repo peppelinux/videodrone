@@ -29,15 +29,11 @@ def run(room='videodrone', y4m='./y4m', lifetime=360, headless=1, pin=None):
     element = WebDriverWait(browser, 60).until(EC.presence_of_element_located((By.XPATH, ui_element)))
     element.click()
     
-    # time.sleep(5)
-    # browser.find_element_by_xpath('/html/body/div[2]/div/div/div[1]/div/div/span/button[1]/span[1]').click()
-    # time.sleep(5)
-    # browser.find_element_by_xpath('/html/body/div[2]/div/div/div[1]/div/span/button[1]').click()
-    
+    breakpoint()
     # show cam
-    time.sleep(5)
-    browser.find_element_by_xpath('//*[@id="tippy-25"]/span[1]').click()
-    time.sleep(5)
+    ui_element = "icon-bbb-video_off"
+    browser.find_element_by_class_name(ui_element).click()
+    time.sleep(2)
     browser.find_element_by_xpath("/html/body/div[2]/div/div/div[1]/div/div[3]/div/button[2]/span").click()
     
     time.sleep(lifetime)

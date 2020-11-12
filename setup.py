@@ -7,7 +7,7 @@ def readme():
 DESC = "WebRTC python unit tests inspired to '80s"
 
 setup(name='videodrone',
-      version='0.9.5',
+      version='0.9.5-1',
       description=DESC,
       long_description=readme(),
       long_description_content_type='text/markdown',
