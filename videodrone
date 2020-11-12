@@ -34,6 +34,8 @@ parser.add_argument('-headless', required=False, default=1, type=int,
 parser.add_argument('-lifetime', required=False, default=360, type=int,
                     help=("Duration of drone activity "
                           "before auto destruction")),
+parser.add_argument('-suffix', required=False,
+                    help=("A suffix to the drone name, eg: videodrone-SUFFIX-N"))
 parser.add_argument('-debug', required=False, 
                     choices=('CRITICAL', 'ERROR', 
                              'WARNING', 'INFO', 'DEBUG'), 
@@ -49,6 +51,7 @@ pin=args.pin
 y4m = args.y4m
 lifetime = args.lifetime
 headless=args.headless
+suffix=args.suffix
 drone_path = args.c
 drone_conn = importlib.import_module(drone_path)
 
@@ -58,7 +61,7 @@ drone_conn = importlib.import_module(drone_path)
 if wn <= 1:
     # single mode: Default
     drone_conn.run(room=room, y4m=y4m, lifetime=lifetime, pin=pin,
-                   headless=headless)
+                   headless=headless, id=0, suffix=suffix)
 else:
     # Parallel
     for i in range(wn):
@@ -68,7 +71,8 @@ else:
                                'y4m': y4m, 
                                'lifetime': lifetime,
                                'headless':headless,
-                               'id': i})
+                               'id': i,
+                               'suffix': suffix})
         time.sleep(timeout)
         p.start()
         logger.info(f'Started drone {p}')

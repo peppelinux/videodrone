@@ -17,12 +17,13 @@ warnings.filterwarnings("ignore", category=UserWarning)
 def run(room='videodrone', y4m='./y4m', lifetime=360, 
         headless=1, pin=None, **kwargs):
     
-    suffix = kwargs.get('id', random.randrange(1000))
+    num = kwargs.get('id', random.randrange(1000))
+    suffix = kwargs.get('suffix', 'default')
     browser = get_chrome_browser(y4m=y4m, headless=headless)
     browser.get(f'{URL}/{room}')
     browser.find_element_by_xpath('//*[@id="room_access_code"]').send_keys(pin)
     browser.find_element_by_xpath('/html/body/div[2]/div/div/div[2]/div[2]/form/div/input[2]').click()
-    browser.find_element_by_xpath('//*[@id="_b_giu-1qd-xfs-muy_join_name"]').send_keys(f'videodrone-{suffix}')
+    browser.find_element_by_xpath('//*[@id="_b_giu-1qd-xfs-muy_join_name"]').send_keys(f'videodrone-{suffix}-{num}')
     browser.find_element_by_id('room-join').click()
     
     # connection to audio server, this could be lagged
