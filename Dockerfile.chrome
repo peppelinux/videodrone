@@ -43,5 +43,5 @@ RUN apt clean
 # install dependencies
 RUN pip3 install --upgrade pip
 
-RUN wget https://raw.githubusercontent.com/peppelinux/videodrone/master/build_chromium.sh -O build_chromium.sh
+RUN wget https://raw.githubusercontent.com/peppelinux/videodrone/master/build.sh -O build.sh
 RUN bash build.sh $VDPATH

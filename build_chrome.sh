@@ -1,17 +1,17 @@
 #!/bin/bash
 
 VDPATH=$1
-CHROME_VER=$(chromium --version | awk -F' ' {'print $2'} | awk -F'.' {'print $1'})
+CHROME_VER=$(google-chrome --version | awk -F' ' {'print $2'} | awk -F'.' {'print $1'})
 Y4M_URL="https://media.xiph.org/video/derf/y4m/stefan_cif.y4m"
 
 rm -Rf $VDPATH
 
 if [ -z "$CHROME_VER" ]
 then
-      echo "Please install chromium"
+      echo "Please install google-chrome"
       exit 1
 else
-      echo $(chromium --version)
+      echo $(google-chrome --version)
 fi
 
 if [ -z "$VDPATH" ]
