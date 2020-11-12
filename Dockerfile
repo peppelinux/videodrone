@@ -26,7 +26,7 @@ ENV VD_DRONE_NUMBER=2
 
 # install dependencies
 RUN apt update
-RUN apt install -y wget unzip curl chromium-driver
+RUN apt install -y wget unzip curl chromium chromium-driver
 #RUN wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb -O google_chrome.deb
 RUN wget http://mirror.cs.uchicago.edu/google-chrome/pool/main/g/google-chrome-stable/google-chrome-stable_83.0.4103.97-1_amd64.deb -O google_chrome.deb
 RUN apt install ./google_chrome.deb -y
