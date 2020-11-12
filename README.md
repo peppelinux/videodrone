@@ -16,8 +16,8 @@ Requirements:
 - chromium web browser
 
 Available drones:
-- [BBB meet GARR](https://blue.meet.garr.it/), [bbbmeet_garr_chrome](src/videodrone/drones/bbbmeet_garr_chrome.py)
-- [Pexip GARR](), [pexip_garr_chrome](src/videodrone/drones/videodrone.drones.pexip_garr_chrome.py)
+- [BBB meet GARR](https://blue.meet.garr.it), [bbbmeet_garr_chrome](src/videodrone/drones/bbbmeet_garr_chrome.py)
+- [Pexip GARR](), [pexip_garr_chrome](src/videodrone/drones/pexip_garr_chrome.py)
 - [jitsi](https://meet.jit.si/), [jitsi_chrome](src/videodrone/drones/jitsi_chrome.py)
 - [Edu meet GARR](https://edu.meet.garr.it/), [edumeet_garr_chrome](src/videodrone/drones/edumeet_garr_chrome.py)
 - [Open meet GARR](https://open.meet.garr.it/), [open_garr_chrome](src/videodrone/drones/open_garr_chrome.py)

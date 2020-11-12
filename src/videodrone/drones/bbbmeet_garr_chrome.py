@@ -1,9 +1,12 @@
 from selenium.common.exceptions import NoSuchWindowException
 from selenium.webdriver.common.by import By
 
+from selenium.webdriver.support.ui import WebDriverWait # available since 2.4.0
+from selenium.webdriver.support import expected_conditions as EC # available since 2.26.0
+
 from . import *
 
-URL = "https://blue.meet.garr.it/"
+URL = "https://blue.meet.garr.it"
 
 logger = logging.getLogger(__name__)
 warnings.filterwarnings("ignore", category=UserWarning)
@@ -18,10 +21,18 @@ def run(room='videodrone', y4m='./y4m', lifetime=360, headless=1, pin=None):
     browser.find_element_by_xpath('//*[@id="_b_giu-1qd-xfs-muy_join_name"]').send_keys('videodrone')
     browser.find_element_by_id('room-join').click()
     
-    time.sleep(5)
-    browser.find_element_by_xpath('/html/body/div[2]/div/div/div[1]/div/div/span/button[1]/span[1]').click()
-    time.sleep(5)
-    browser.find_element_by_xpath('/html/body/div[2]/div/div/div[1]/div/span/button[1]').click()
+    # connection to audio server, this could be lagged
+    ui_element = '/html/body/div[2]/div/div/div[1]/div/div/span/button[1]/span[1]'
+    element = WebDriverWait(browser, 60).until(EC.presence_of_element_located((By.XPATH, ui_element)))
+    element.click()
+    ui_element = '/html/body/div[2]/div/div/div[1]/div/span/button[1]/span[1]/i'
+    element = WebDriverWait(browser, 60).until(EC.presence_of_element_located((By.XPATH, ui_element)))
+    element.click()
+    
+    # time.sleep(5)
+    # browser.find_element_by_xpath('/html/body/div[2]/div/div/div[1]/div/div/span/button[1]/span[1]').click()
+    # time.sleep(5)
+    # browser.find_element_by_xpath('/html/body/div[2]/div/div/div[1]/div/span/button[1]').click()
     
     # show cam
     time.sleep(5)
