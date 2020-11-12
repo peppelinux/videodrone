@@ -67,7 +67,8 @@ else:
                                'pin': pin, 
                                'y4m': y4m, 
                                'lifetime': lifetime,
-                               'headless':headless})
+                               'headless':headless,
+                               'id': i})
         time.sleep(timeout)
         p.start()
         logger.info(f'Started drone {p}')
