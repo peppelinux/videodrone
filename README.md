@@ -26,6 +26,8 @@ Available drones:
 You should know, that:
 - WebRTC needs a huge load, on a intel i7 processor you would start from 5 to 8 drones
 - hundreds of drones should be handled in a distribuited environment, a cluster of videodrones
+- Docker is the fastest way to built a fully working environment, ready to go
+- Drones have default hardcoded URLS in their code, please use `-url` parameter to override
 
 Setup
 -----
@@ -138,4 +140,7 @@ See [videodrone.drones.jitsi_chrome](src/videodrone/drones/jitsi_chrome.py) for 
 Credits
 -------
 
-Fabio Farina (Garr Consortium), Massimo Carboni (Garr Consortium), Garrlab community.
+- Fabio Farina (Garr Consortium)
+- Massimo Carboni (Garr Consortium)
+- Garrlab community
+- IoRestoACasa Community

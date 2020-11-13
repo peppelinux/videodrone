@@ -24,6 +24,8 @@ parser.add_argument('-c', required=False,
                     default='videodrone.drones.jitsi_chrome')
 parser.add_argument('-y4m', required=False,
                     help=("y4m path, where media files resides."))
+parser.add_argument('-url', required=False,
+                    help=("URL - overrides the constant url in the drones"))
 parser.add_argument('-room', required=True,
                     help=("room name"))
 parser.add_argument('-pin', required=False,
@@ -49,6 +51,7 @@ timeout = args.t
 room = args.room
 pin=args.pin
 y4m = args.y4m
+url = args.url
 lifetime = args.lifetime
 headless=args.headless
 suffix=args.suffix
@@ -61,7 +64,7 @@ drone_conn = importlib.import_module(drone_path)
 if wn <= 1:
     # single mode: Default
     drone_conn.run(room=room, y4m=y4m, lifetime=lifetime, pin=pin,
-                   headless=headless, id=0, suffix=suffix)
+                   headless=headless, id=0, suffix=suffix, url=url)
 else:
     # Parallel
     for i in range(wn):
@@ -72,7 +75,8 @@ else:
                                'lifetime': lifetime,
                                'headless':headless,
                                'id': i,
-                               'suffix': suffix})
+                               'suffix': suffix,
+                               'url' : url})
         time.sleep(timeout)
         p.start()
         logger.info(f'Started drone {p}')

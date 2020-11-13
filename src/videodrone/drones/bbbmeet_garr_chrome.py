@@ -19,11 +19,15 @@ def run(room='videodrone', y4m='./y4m', lifetime=360,
     
     num = kwargs.get('id', random.randrange(1000))
     suffix = kwargs.get('suffix', 'default')
+    url = kwargs.get('url', URL)
+    drone_name = f'videodrone-{suffix}-{num}'
     browser = get_chrome_browser(y4m=y4m, headless=headless)
-    browser.get(f'{URL}/{room}')
+    browser.get(f'{url}/{room}')
+    
     browser.find_element_by_xpath('//*[@id="room_access_code"]').send_keys(pin)
     browser.find_element_by_xpath('/html/body/div[2]/div/div/div[2]/div[2]/form/div/input[2]').click()
-    browser.find_element_by_xpath('//*[@id="_b_giu-1qd-xfs-muy_join_name"]').send_keys(f'videodrone-{suffix}-{num}')
+    browser.find_element_by_class_name('join-form').send_keys(drone_name)
+    
     browser.find_element_by_id('room-join').click()
     
     # connection to audio server, this could be lagged
@@ -36,12 +40,12 @@ def run(room='videodrone', y4m='./y4m', lifetime=360,
     
     # show cam
     time.sleep(5)
-    ui_element = "icon-bbb-video_off"
-    status_exp = None
     # element_1 = WebDriverWait(browser, 60).until(EC.presence_of_element_located((By.CLASS_NAME, ui_element)))
-    element_1 = browser.find_element_by_class_name(ui_element)
+    element_1 = browser.find_element_by_class_name("icon-bbb-video_off")
     element_2 = browser.find_element_by_xpath('//*[@id="tippy-25"]/span[1]')
     element_3 = browser.find_element_by_id('tippy-25')
+    
+    status_exp = None
     for i in (element_1, element_2, element_3):
         try:
             i.click()

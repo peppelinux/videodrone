@@ -7,7 +7,7 @@ def readme():
 DESC = "WebRTC python unit tests inspired to '80s"
 
 setup(name='videodrone',
-      version='0.9.7-2',
+      version='0.9.8',
       description=DESC,
       long_description=readme(),
       long_description_content_type='text/markdown',
@@ -16,7 +16,7 @@ setup(name='videodrone',
                    "Programming Language :: Python :: 3.6",
                    "Programming Language :: Python :: 3.7",
                    "Programming Language :: Python :: 3.8"],
-      url='https://github.com/peppelinux/airdrone',
+      url='https://github.com/peppelinux/videodrone',
       author='Giuseppe De Marco',
       author_email='giuseppe.demarco@unical.it',
       license="Apache 2.0",

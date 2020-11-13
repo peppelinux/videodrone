@@ -11,8 +11,10 @@ warnings.filterwarnings("ignore", category=UserWarning)
 
 
 def run(room, y4m, lifetime=360, headless=1, **kwargs):
+    url = kwargs.get('url', URL)
     browser = get_chrome_browser(y4m=y4m, headless=headless)
-    browser.get(f'{URL}/{room}')
+    browser.get(f'{url}/{room}')
+    
     # Deprecation Warning
     browser.find_element_by_class_name('action-btn').click()
     # browser.find_element(value='action-btn', by=By.CLASS_NAME)
