@@ -24,7 +24,7 @@ parser.add_argument('-c', required=False,
                     default='videodrone.drones.jitsi_chrome')
 parser.add_argument('-y4m', required=False,
                     help=("y4m path, where media files resides."))
-parser.add_argument('-url', required=False,
+parser.add_argument('-url', required=False, default=None,
                     help=("URL - overrides the constant url in the drones"))
 parser.add_argument('-room', required=True,
                     help=("room name"))

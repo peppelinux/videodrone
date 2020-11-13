@@ -9,7 +9,7 @@ warnings.filterwarnings("ignore", category=UserWarning)
 
 
 def run(room, y4m, lifetime=360, headless=1, **kwargs):
-    url = kwargs.get('url', URL)
+    url = kwargs.get('url') or URL
     browser = get_chrome_browser(y4m=y4m, headless=headless)
     browser.get(f'{url}/{room}')
     

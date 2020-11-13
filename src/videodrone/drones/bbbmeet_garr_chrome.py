@@ -19,7 +19,7 @@ def run(room='videodrone', y4m='./y4m', lifetime=360,
     
     num = kwargs.get('id', random.randrange(1000))
     suffix = kwargs.get('suffix', 'default')
-    url = kwargs.get('url', URL)
+    url = kwargs.get('url') or URL
     drone_name = f'videodrone-{suffix}-{num}'
     browser = get_chrome_browser(y4m=y4m, headless=headless)
     browser.get(f'{url}/{room}')
