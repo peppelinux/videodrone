@@ -1,5 +1,6 @@
 from selenium.common.exceptions import NoSuchWindowException
 from selenium.webdriver.common.by import By
+from selenium.webdriver.common.keys import Keys
 
 from . import *
 
@@ -13,6 +14,14 @@ def run(room, y4m, lifetime=360, headless=1, **kwargs):
     url = kwargs.get('url') or URL
     browser = get_chrome_browser(y4m=y4m, headless=headless)
     browser.get(f'{url}/{room}')
+    
+    drone_name = build_drone_name(**kwargs)
+    
+    # set name
+    display_name = browser.find_element_by_id('displayname')
+    display_name.send_keys(Keys.CONTROL + "a")
+    display_name.send_keys(Keys.DELETE)
+    display_name.send_keys(drone_name) 
     
     browser.find_element_by_xpath('/html/body/div[2]/div[3]/div/div[3]/button[2]').click()
     # browser.find_element(By.XPATH('/html/body/div[2]/div[3]/div/div[3]/button[2]')).click()

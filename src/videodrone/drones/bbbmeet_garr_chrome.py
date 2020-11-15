@@ -15,15 +15,11 @@ warnings.filterwarnings("ignore", category=UserWarning)
 
 
 def run(room='videodrone', y4m='./y4m', lifetime=360, 
-        headless=1, pin=None, **kwargs):
-    
-    num = kwargs.get('id', random.randrange(1000))
-    suffix = kwargs.get('suffix', 'default')
+        headless=1, pin=None, **kwargs):    
     url = kwargs.get('url') or URL
-    drone_name = f'videodrone-{suffix}-{num}'
+    drone_name = build_drone_name(**kwargs)
     browser = get_chrome_browser(y4m=y4m, headless=headless)
     browser.get(f'{url}/{room}')
-    
     browser.find_element_by_xpath('//*[@id="room_access_code"]').send_keys(pin)
     browser.find_element_by_xpath('/html/body/div[2]/div/div/div[2]/div[2]/form/div/input[2]').click()
     browser.find_element_by_class_name('join-form').send_keys(drone_name)

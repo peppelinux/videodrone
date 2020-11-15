@@ -3,6 +3,7 @@
 import logging
 import os
 import warnings
+import random
 import time
 
 from selenium import webdriver
@@ -37,3 +38,10 @@ def get_chrome_browser(y4m=None, headless=True):
         )
     return browser
 
+def build_drone_name(**kwargs):
+    num = kwargs.get('id', random.randrange(1000))
+    suffix = kwargs.get('suffix', None)
+    if suffix:
+        return  f'videodrone-{suffix}-{num}'
+    else:
+        return f'videodrone-{num}'
