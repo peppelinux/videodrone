@@ -39,15 +39,12 @@ You can even use `build.sh` to build your videodrone project.
 
 Prepare environment
 ````
-apt install python3-pip wget chromium unzip
+apt install python3-pip wget chromium chromium-driver unzip
 pip3 install --upgrade pip
 pip3 install virtualenv
-
-wget https://raw.githubusercontent.com/peppelinux/videodrone/master/build.sh -O build.sh
-bash build.sh VideoDrone
 ````
 
-You can even install videodrone by hands.
+Install videodrone.
 
 ````
 mkdir VideoDrones && cd VideoDrones
@@ -61,6 +58,14 @@ Create the following directories before executing `videodrone`.
   - `mkdir y4ms`
   - `wget https://media.xiph.org/video/derf/y4m/students_cif.y4m -O y4ms/students_cif.y4m`
 - drivers, where your selenium drivers resides.
+
+
+Build script, DEPRECABLE: tested on Debian10 and Ubuntu Focal 20.04
+````
+wget https://raw.githubusercontent.com/peppelinux/videodrone/master/build.sh -O build.sh
+bash build.sh VideoDrone
+````
+We kindly suggest to use Docker to built in a easy and fast way your VideoDrone environment.
 
 
 Setup in LXC container
@@ -135,6 +140,14 @@ in your PYTHONPATH (sys.path). You can even create
 a python local package folder, in your VideoDrone Project.
 
 See [videodrone.drones.jitsi_chrome](src/videodrone/drones/jitsi_chrome.py) for example.
+
+
+Issues
+------
+
+The big problem is the correct version of selenium's chrome-driver and chrome web browser.
+If you need to run videodrone as a Developer you should have to work a bit more on your workstation to get the correct versions.
+See Dockerfile to see how I do that.
 
 
 Credits
